@@ -17,6 +17,7 @@ public class Post extends AuditModel {
     private String description;
     @NotNull
     @Lob
+    @Column(name = "content", columnDefinition = "LONGTEXT")
     private String content;
 
     public Post() {

@@ -23,6 +23,10 @@ public class CommentServiceImpl implements CommentService{
         return commentRepository.findAll();
     }
 
+    public List<Comment> getAllCommentsByPostID(Long id) {
+        return commentRepository.findAll().stream().filter(c->c.getPost().getId()==id).toList();
+    }
+
     @Override
     public void saveComment(Comment comment) {
         Optional<Comment> commentOptional = commentRepository.findById(comment.getId());
