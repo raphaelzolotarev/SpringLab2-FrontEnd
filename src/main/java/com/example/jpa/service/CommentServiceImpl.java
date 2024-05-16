@@ -29,13 +29,7 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public void saveComment(Comment comment) {
-        Optional<Comment> commentOptional = commentRepository.findById(comment.getId());
-        if(commentOptional.isPresent()){
-            commentOptional.get().setText(comment.getText());
-            commentRepository.save(commentOptional.get());
-        } else {
-            commentRepository.save(comment);
-        }
+        commentRepository.save(comment);
     }
 
     @Override
