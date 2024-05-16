@@ -1,23 +1,10 @@
 package com.example.jpa.controller;
-import com.example.jpa.exception.ResourceNotFoundException;
 import com.example.jpa.model.Comment;
-import com.example.jpa.model.Post;
-import com.example.jpa.repository.CommentRepository;
-import com.example.jpa.repository.PostRepository;
-import com.example.jpa.service.CommentService;
 import com.example.jpa.service.CommentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import jakarta.validation.Valid;
-
-import java.util.List;
 
 @Controller
 public class CommentController {
@@ -31,12 +18,11 @@ public class CommentController {
     }
 
     @PostMapping("/addNewComment")
-    public String createComment(@ModelAttribute("newComment") Comment comment, @RequestParam("action") String action){
+    public String createComment(@ModelAttribute("newComment") Comment comment){
         commentService.saveComment(comment);
-        return "redirect:/";
+        //eturn "redirect:/";
+        return "redirect:/showPost/"+comment.getPost().getId();
     }
-
-
 
     /*
     @PutMapping("/posts/{postId}/comments/{commentId}")
@@ -62,4 +48,5 @@ public class CommentController {
             // Default Exception die kan gebruikt worden is             ResponseStatusException
         }).orElseThrow(() -> new ResourceNotFoundException("Comment not found                with id " + commentId + " and postId " + postId));
     }*/
+
 }

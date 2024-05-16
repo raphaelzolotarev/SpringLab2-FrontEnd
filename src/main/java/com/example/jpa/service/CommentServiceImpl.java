@@ -1,11 +1,9 @@
 package com.example.jpa.service;
 
 import com.example.jpa.model.Comment;
-import com.example.jpa.model.Comment;
 import com.example.jpa.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 

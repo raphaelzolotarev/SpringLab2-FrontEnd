@@ -1,7 +1,6 @@
 package com.example.jpa.service;
 
 import com.example.jpa.model.Post;
-
 import java.util.List;
 
 public interface PostService {
