@@ -24,7 +24,7 @@ public class Comment extends AuditModel {
 
     @NotNull
     @Lob
-    @Column(name = "content", columnDefinition = "LONGTEXT")
+    @Column(name = "text", columnDefinition = "LONGTEXT")
     private String text;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
